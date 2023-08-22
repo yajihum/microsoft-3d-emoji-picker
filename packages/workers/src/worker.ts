@@ -3,7 +3,6 @@ export interface Env {
 	AUTH_KEY_SECRET: string;
 }
 
-// eslint-disable-next-line import/no-anonymous-default-export
 export default {
 	async fetch(request: Request, env: Env) {
 		const url = new URL(request.url);
