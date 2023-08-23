@@ -6,6 +6,11 @@ export interface Env {
 export default {
 	async fetch(request: Request, env: Env) {
 		const url = new URL(request.url);
+		const corsHeaders = {
+			'Access-Control-Allow-Origin': '*',
+			'Access-Control-Allow-Methods': 'GET',
+			'Access-Control-Max-Age': '86400',
+		};
 
 		switch (request.method) {
 			case 'GET':
@@ -18,6 +23,7 @@ export default {
 				const keys = listed.objects.map((object: R2Object) => object.key.replace(`${category}/`, ''));
 				return new Response(JSON.stringify(keys), {
 					headers: {
+						...corsHeaders,
 						'content-type': 'application/json; charset=UTF-8',
 					},
 				});
