@@ -105,7 +105,7 @@ export default function NavigationSection() {
 
   return (
     <nav className="border-b-2 border-gray-50">
-      <div className="grid grid-cols-8 gap-1 justify-items-center px-3 pt-3">
+      <div className="grid grid-cols-8 gap-1 justify-items-center pr-5 pl-3 pt-3">
         {navIcons.map((icon) => (
           <Button
             key={icon.element.key}

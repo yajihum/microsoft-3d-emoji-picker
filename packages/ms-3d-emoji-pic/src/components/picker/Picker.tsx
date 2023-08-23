@@ -11,7 +11,7 @@ function Picker(props: Props) {
   const showClass = props.isShow ? "block" : "hidden";
 
   return (
-    <div className={clsx("shadow-xl rounded-2xl bg-white", showClass)}>
+    <div className={clsx("shadow-xl rounded-2xl bg-white w-80", showClass)}>
       <NavigationSection />
       <EmojiSection />
     </div>
