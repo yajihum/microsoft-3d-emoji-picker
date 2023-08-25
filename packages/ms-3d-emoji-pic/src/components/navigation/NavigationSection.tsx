@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { useEffect } from "react";
+import React from "react";
 import { Button } from "../atoms/Button/Button";
 import {
   AppleIcon,
@@ -12,7 +12,7 @@ import {
   SymbolIcon,
 } from "../atoms/Svg/SvgIcons";
 
-type IconName =
+export type IconName =
   | "smile"
   | "people"
   | "dog"
@@ -56,53 +56,7 @@ const navIcons: NaviIconType[] = iconNames.map((name, index) => {
   };
 });
 
-// type CategoryRefs = {
-//   [key in IconName]: React.RefObject<HTMLButtonElement>;
-// };
-
 export default function NavigationSection() {
-  //const [activeCategory, setActiveCategory] = useState(iconNames[0]);
-
-  // 各カテゴリーのrefを作成
-  //   const categoryRefs = useRef(
-  //     iconNames.reduce((acc, category) => {
-  //       acc[category] = React.createRef();
-  //       return acc;
-  //     }, {} as CategoryRefs)
-  //   );
-
-  useEffect(() => {
-    // if (!("IntersectionObserver" in window)) return;
-    // const observer = new IntersectionObserver(
-    //   (entries) => {
-    //     console.log(entries);
-    //     entries.forEach((entry) => {
-    //       if (entry.isIntersecting) {
-    //         // entry.target.idは監視している要素のidで、ここではカテゴリ名
-    //         setActiveCategory(entry.target.id);
-    //       }
-    //     });
-    //   },
-    //   {
-    //     // ビューポートの50%が見えたときに変更する
-    //     threshold: 0.5,
-    //   }
-    // );
-    // // 各カテゴリーを監視する
-    // iconNames.forEach((category) => {
-    //   const categoryElement = categoryRefs.current[category].current;
-    //   if (!categoryElement) return;
-    //   observer.observe(categoryElement);
-    // });
-    // return () => {
-    //   iconNames.forEach((category) => {
-    //     const categoryElement = categoryRefs.current[category].current;
-    //     if (!categoryElement) return;
-    //     observer.unobserve(categoryElement);
-    //   });
-    // };
-  }, []);
-
   return (
     <nav className="border-b-2 border-gray-50">
       <div className="grid grid-cols-8 gap-1 justify-items-center pr-5 pl-3 pt-3">
