@@ -1,5 +1,5 @@
 import { emojiCategories } from "./data";
-import { EmojiImage, EmojiImageList } from "./type";
+import { CategoryName, EmojiImage, EmojiImageList } from "./type";
 
 export const emojiImages: EmojiImageList[] = await Promise.all(
   emojiCategories.map(async (category) => {
@@ -24,7 +24,8 @@ export const emojiImages: EmojiImageList[] = await Promise.all(
       .sort((a, b) => Number(a.name) - Number(b.name));
 
     return {
-      category: category.label,
+      categoryName: category.name as CategoryName,
+      categoryLabel: category.label,
       emojiImages: sortedCategoryImages,
     };
   })

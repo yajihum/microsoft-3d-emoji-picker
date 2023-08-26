@@ -15,7 +15,18 @@ export type EmojiImage = {
   extension: "png";
 };
 
+export type CategoryName =
+  | "smilieys"
+  | "people"
+  | "animals-and-nature"
+  | "food"
+  | "activity"
+  | "travel-and-place"
+  | "objects"
+  | "symbols";
+
 export type EmojiImageList = {
-  category: string;
+  categoryName: CategoryName;
+  categoryLabel: string;
   emojiImages: EmojiImage[];
 };

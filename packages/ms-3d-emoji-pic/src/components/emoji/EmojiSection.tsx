@@ -13,7 +13,7 @@ export default function EmojiSection() {
       >
         {images.map((categoryList) => (
           <Category
-            key={categoryList.category}
+            key={categoryList.categoryName}
             emojiImageList={categoryList}
             ref={containerRef}
           />
