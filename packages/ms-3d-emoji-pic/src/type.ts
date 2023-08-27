@@ -1,15 +1,5 @@
 export type Emoji = {
-  aliases: string[];
-  emotions: string[];
-  id: string;
-  keywords: string[];
-  name: string;
-  native: string;
-  shortcodes: string;
-  unifies: string;
-};
-
-export type EmojiImage = {
+  url: string;
   category: string;
   name: string;
   extension: "png";
@@ -25,8 +15,10 @@ export type CategoryName =
   | "objects"
   | "symbols";
 
-export type EmojiImageList = {
+export type EmojiList = {
   categoryName: CategoryName;
   categoryLabel: string;
-  emojiImages: EmojiImage[];
+  emojiImages: Emoji[];
 };
+
+export type HandleEmojiClickType = (selectedEmoji: Emoji) => void;

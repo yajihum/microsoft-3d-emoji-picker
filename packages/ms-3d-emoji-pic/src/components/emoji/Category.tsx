@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useRef } from "react";
-import { ActiveCategoryContext } from "../../context";
-import { EmojiImage, EmojiImageList } from "../../type";
+import { ActiveCategoryContext, HandleEmojiClickContext } from "../../context";
+import { Emoji, EmojiList } from "../../type";
 
 type Props = {
-  emojiImageList: EmojiImageList;
+  emojiImageList: EmojiList;
 };
 
 export const Category = React.forwardRef<HTMLDivElement, Props>(
@@ -14,6 +14,7 @@ export const Category = React.forwardRef<HTMLDivElement, Props>(
     const rootElement =
       typeof ref === "object" && ref && ref.current ? ref.current : null;
     const { toggleActiveCategory } = useContext(ActiveCategoryContext);
+    const { onEmojiSelect } = useContext(HandleEmojiClickContext);
 
     useEffect(() => {
       const observer = new IntersectionObserver(
@@ -62,17 +63,20 @@ export const Category = React.forwardRef<HTMLDivElement, Props>(
           {emojiImageList.categoryLabel}
         </h2>
         <div className="grid grid-cols-8">
-          {emojiImageList.emojiImages.map((image: EmojiImage) => (
+          {emojiImageList.emojiImages.map((emoji: Emoji) => (
             <button
               type="button"
-              key={image.name}
+              onClick={() => {
+                onEmojiSelect(emoji);
+              }}
+              key={emoji.name}
               className="hover:bg-blue-100 rounded-md p-0.5"
             >
               <img
-                src={`https://cdn.emoji.yajium.day/${image.category}/${image.name}.${image.extension}`}
+                src={`https://cdn.emoji.yajium.day/${emoji.category}/${emoji.name}.${emoji.extension}`}
                 width={30}
                 height={30}
-                alt={`${image.category} | ${image.name}}`}
+                alt={`${emoji.category} | ${emoji.name}`}
               />
             </button>
           ))}

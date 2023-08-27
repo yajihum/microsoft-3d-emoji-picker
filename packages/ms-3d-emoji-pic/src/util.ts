@@ -1,7 +1,7 @@
 import { emojiCategories } from "./data";
-import { CategoryName, EmojiImage, EmojiImageList } from "./type";
+import { CategoryName, Emoji, EmojiList } from "./type";
 
-export const emojiImages: EmojiImageList[] = await Promise.all(
+export const emojiImages: EmojiList[] = await Promise.all(
   emojiCategories.map(async (category) => {
     // workersからR2に保存している画像の名前を取得する
     const res = await fetch(
@@ -9,9 +9,10 @@ export const emojiImages: EmojiImageList[] = await Promise.all(
     );
     const imageNames = await res.json(); // xxx.pngの文字列を要素とする配列を取得
 
-    const categoryImages: EmojiImage[] = imageNames.map((image: string) => {
+    const emojiListByCategory: Emoji[] = imageNames.map((image: string) => {
       const [name, extension] = image.split(".");
       return {
+        url: `https://cdn.emoji.yajium.day/${category.name}/${name}.${extension}`,
         name,
         extension,
         category: category.name,
@@ -19,7 +20,7 @@ export const emojiImages: EmojiImageList[] = await Promise.all(
     });
 
     // 名前順にソートする
-    const sortedCategoryImages = categoryImages
+    const sortedCategoryImages = emojiListByCategory
       .slice()
       .sort((a, b) => Number(a.name) - Number(b.name));
 

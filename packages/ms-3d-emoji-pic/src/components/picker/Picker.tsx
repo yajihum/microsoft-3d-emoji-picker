@@ -1,15 +1,17 @@
 import clsx from "clsx";
 import React, { useState } from "react";
-import { ActiveCategoryContext } from "../../context";
+import { ActiveCategoryContext, HandleEmojiClickContext } from "../../context";
+import { HandleEmojiClickType } from "../../type";
 import EmojiSection from "../emoji/EmojiSection";
 import NavigationSection from "../navigation/NavigationSection";
 
 type Props = {
-  isShow: boolean;
+  isShow?: boolean;
+  onEmojiSelect?: HandleEmojiClickType;
 };
 
-function Picker(props: Props) {
-  const showClass = props.isShow ? "block" : "hidden";
+function Picker({ isShow = false, onEmojiSelect = () => {} }: Props) {
+  const showClass = isShow ? "block" : "hidden";
   const [activeCategory, setActiveCategory] = useState<string>("smilieys");
 
   const toggleActiveCategory = (category: string) => {
@@ -21,8 +23,10 @@ function Picker(props: Props) {
       <ActiveCategoryContext.Provider
         value={{ activeCategory, toggleActiveCategory }}
       >
-        <NavigationSection />
-        <EmojiSection />
+        <HandleEmojiClickContext.Provider value={{ onEmojiSelect }}>
+          <NavigationSection />
+          <EmojiSection />
+        </HandleEmojiClickContext.Provider>
       </ActiveCategoryContext.Provider>
     </div>
   );

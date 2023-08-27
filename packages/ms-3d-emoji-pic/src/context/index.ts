@@ -1,4 +1,5 @@
 import { createContext } from "react";
+import { HandleEmojiClickType } from "../type";
 
 type ActiveCategoryContextType = {
   activeCategory: string;
@@ -12,3 +13,16 @@ const defaultContextValue: ActiveCategoryContextType = {
 
 export const ActiveCategoryContext =
   createContext<ActiveCategoryContextType>(defaultContextValue);
+
+type HandleEmojiClickContextType = {
+  onEmojiSelect: HandleEmojiClickType;
+};
+
+const defaultHandleEmojiClickContextValue: HandleEmojiClickContextType = {
+  onEmojiSelect: () => {},
+};
+
+export const HandleEmojiClickContext =
+  createContext<HandleEmojiClickContextType>(
+    defaultHandleEmojiClickContextValue
+  );
