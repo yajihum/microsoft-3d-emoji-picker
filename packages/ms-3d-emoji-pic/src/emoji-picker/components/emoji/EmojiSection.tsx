@@ -9,6 +9,7 @@ export default function EmojiSection() {
     <section className="pl-4 pb-4">
       <div
         ref={containerRef}
+        autoFocus
         className="grid grid-rows gap-3 overflow-auto h-96 scrollbar"
       >
         {images.map((categoryList) => (
