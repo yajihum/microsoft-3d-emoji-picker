@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "ESNext",
+    "lib": ["esnext", "dom"],
+    "allowJs": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "jsx": "react",
+    "outDir": "./dist",
+    "composite": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "bundler",
+    "stripInternal": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "declarationDir": "dist",
+    "types": ["vitest/globals"]
+  },
+  "include": ["vite.config.js"],
+  "exclude": ["node_modules", "packages/**/dist/**"]
+}
