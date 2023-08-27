@@ -1,10 +1,16 @@
-import React, { useRef } from "react";
-import { emojiImages } from "../../util";
+import React, { useEffect, useRef } from "react";
+import { EmojiList } from "../../type";
+import { fetchEmojiList } from "../../util";
 import Category from "./Category";
 
 export default function EmojiSection() {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const images = emojiImages;
+  const [images, setImages] = React.useState<EmojiList[]>([]);
+
+  useEffect(() => {
+    fetchEmojiList().then((res) => setImages(res));
+  }, []);
+
   return (
     <section className="pl-4 pb-4">
       <div

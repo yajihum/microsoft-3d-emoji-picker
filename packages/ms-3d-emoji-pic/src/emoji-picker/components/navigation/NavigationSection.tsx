@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React, { useContext, useEffect, useState } from "react";
-import { ActiveCategoryContext } from "../../../context";
+import { ActiveCategoryContext } from "../../context";
 import { categoryNames } from "../../data";
 import { CategoryName } from "../../type";
 import { Button } from "../atoms/Button/Button";

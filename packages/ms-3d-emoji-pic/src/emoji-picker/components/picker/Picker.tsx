@@ -9,7 +9,7 @@ type Props = {
   onEmojiSelect?: HandleEmojiClickType;
 };
 
-function Picker({ isOpen = false, onEmojiSelect = () => {} }: Props) {
+export const Picker = ({ isOpen = false, onEmojiSelect = () => {} }: Props) => {
   const [activeCategory, setActiveCategory] = useState<string>("smilieys");
   const dialogRef = useRef<HTMLDialogElement | null>(null);
 
@@ -57,6 +57,4 @@ function Picker({ isOpen = false, onEmojiSelect = () => {} }: Props) {
       </ActiveCategoryContext.Provider>
     </dialog>
   );
-}
-
-export default Picker;
+};
