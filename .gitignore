@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 # vite project
-emoji-picker/
+vite/src/emoji-picker/
