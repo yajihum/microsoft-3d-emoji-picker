@@ -1,3 +1,5 @@
+import { CategoryName } from "./type";
+
 export const emojiCategories = [
   {
     name: "smilieys",
@@ -31,4 +33,15 @@ export const emojiCategories = [
     name: "symbols",
     label: "シンボル",
   },
+];
+
+export const categoryNames: CategoryName[] = [
+  "smilieys",
+  "people",
+  "animals-and-nature",
+  "food",
+  "activity",
+  "travel-and-place",
+  "objects",
+  "symbols",
 ];

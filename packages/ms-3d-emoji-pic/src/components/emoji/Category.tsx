@@ -47,7 +47,11 @@ export const Category = React.forwardRef<HTMLDivElement, Props>(
     }, []);
 
     return (
-      <section key={emojiImageList.categoryName} className="grid gap-1">
+      <section
+        id={emojiImageList.categoryName}
+        key={emojiImageList.categoryName}
+        className="grid gap-1"
+      >
         <h2
           id={emojiImageList.categoryName}
           ref={(el) => {

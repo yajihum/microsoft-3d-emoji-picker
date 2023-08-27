@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import React, { useContext, useEffect, useState } from "react";
 import { ActiveCategoryContext } from "../../context";
+import { categoryNames } from "../../data";
 import { CategoryName } from "../../type";
 import { Button } from "../atoms/Button/Button";
 import {
@@ -14,18 +15,7 @@ import {
   SymbolIcon,
 } from "../atoms/Svg/SvgIcons";
 
-export const categoryNames: CategoryName[] = [
-  "smilieys",
-  "people",
-  "animals-and-nature",
-  "food",
-  "activity",
-  "travel-and-place",
-  "objects",
-  "symbols",
-];
-
-type NaviIconType = {
+type NavIconType = {
   name: CategoryName;
   element: JSX.Element;
   isActive: boolean;
@@ -42,7 +32,7 @@ const iconComponents: Record<CategoryName, JSX.Element> = {
   symbols: <SymbolIcon key="symbols" />,
 };
 
-const initisalNavIcons: NaviIconType[] = categoryNames.map((name, index) => {
+const initisalNavIcons: NavIconType[] = categoryNames.map((name, index) => {
   return {
     name: name,
     element: iconComponents[name],
@@ -50,27 +40,35 @@ const initisalNavIcons: NaviIconType[] = categoryNames.map((name, index) => {
   };
 });
 
+const getNewNavIcons = (navIcons: NavIconType[], activeCategory: string) => {
+  return navIcons.map((icon) => {
+    if (icon.name === activeCategory) {
+      return {
+        ...icon,
+        isActive: true,
+      };
+    } else {
+      return {
+        ...icon,
+        isActive: false,
+      };
+    }
+  });
+};
+
+const handleButtonClick = (categoryName: string) => {
+  const sectionElement = document.getElementById(categoryName);
+  if (sectionElement) {
+    sectionElement.scrollIntoView({ behavior: "instant" }); // スムーズスクロール
+  }
+};
+
 export default function NavigationSection() {
   const { activeCategory } = useContext(ActiveCategoryContext);
-  // const [translateClass, setActiveCategoryIndex] =
-  //   useState<string>("translate-x-t0");
-  const [navIcons, setNavIcons] = useState<NaviIconType[]>(initisalNavIcons);
+  const [navIcons, setNavIcons] = useState<NavIconType[]>(initisalNavIcons);
 
   useEffect(() => {
-    const newNavIcons = navIcons.map((icon) => {
-      if (icon.name === activeCategory) {
-        //setActiveCategoryIndex(`translate-x-[${index * 100}%]`);
-        return {
-          ...icon,
-          isActive: true,
-        };
-      } else {
-        return {
-          ...icon,
-          isActive: false,
-        };
-      }
-    });
+    const newNavIcons = getNewNavIcons(navIcons, activeCategory);
     setNavIcons(newNavIcons);
   }, [activeCategory]);
 
@@ -79,11 +77,16 @@ export default function NavigationSection() {
       <div className="grid grid-cols-8 justify-items-center pr-5 pl-3 py-3">
         {navIcons.map((icon) => (
           <Button
+            type="button"
+            onClick={() => {
+              setNavIcons((prev) => getNewNavIcons(prev, icon.name));
+              handleButtonClick(icon.name);
+            }}
             key={icon.element.key}
             className={clsx(
-              "w-7 h-7 fill-current flex justify-center items-center",
+              "w-7 h-7 fill-current",
               icon.isActive
-                ? "text-blue-500 underline underline-offset-2"
+                ? "text-blue-600 underline underline-offset-2"
                 : "text-gray-400"
             )}
           >
