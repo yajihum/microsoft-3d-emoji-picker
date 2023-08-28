@@ -4,12 +4,12 @@
   "description": "A 3D emoji picker powered by Microsoft's FluentEmoji, designed for use with React.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yajium/microsoft-3d-emoji-picker.git"
+    "url": "git+https://github.com/yajihum/microsoft-3d-emoji-picker.git"
   },
   "workspaces": [
     "packages/*"
   ],
-  "author": "yajium",
+  "author": "yajihum",
   "keywords": [
     "react",
     "emoji picker",
@@ -56,7 +56,7 @@
     "vitest": "^0.34.3"
   },
   "files": [
-    "/dist",
+    "dist",
     "LICENSE"
   ],
   "type": "module"

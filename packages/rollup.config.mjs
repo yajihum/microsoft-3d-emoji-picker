@@ -5,7 +5,7 @@ import pkg from "./package.json" assert { type: "json" };
 
 export default [
   {
-    input: "./index.ts",
+    input: "./src/index.ts",
     output: [
       {
         file: pkg.main,
@@ -24,19 +24,18 @@ export default [
       }),
       typescript({
         tsconfig: "./tsconfig.json",
-        exclude: ["**/tests/**", "**/*.test.tsx"],
       }),
       dts(),
     ],
     external: ["react", "react-dom", "tailwindcss", "clsx"],
   },
   {
-    input: "dist/cjs/types/index.d.ts",
+    input: "dist/index.d.ts",
     output: [{ file: "dist/cjs/index.d.ts", format: "cjs" }],
     plugins: [dts()],
   },
   {
-    input: "dist/esm/types/index.d.ts",
+    input: "dist/index.d.ts",
     output: [{ file: "dist/esm/index.d.ts", format: "esm" }],
     plugins: [dts()],
   },

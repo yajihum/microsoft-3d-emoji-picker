@@ -8,7 +8,7 @@
     "strict": true,
     "jsx": "react",
     "outDir": "./dist",
-    "composite": true,
+    //"composite": true,
     "skipLibCheck": true,
     "isolatedModules": true,
     "allowSyntheticDefaultImports": true,
@@ -18,8 +18,8 @@
     "declaration": true,
     "declarationDir": "dist",
     "types": ["vitest/globals"],
-    "rootDir": "."
+    "rootDir": "./src"
   },
-  "include": ["vite.config.js", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "packages/**/dist/**"]
+  "include": ["vite.config.js", "src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["**/tests/**", "**/*.test.tsx"]
 }
