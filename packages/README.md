@@ -1,10 +1,10 @@
-# 😊Microsoft 3D Emoji Picker😊
-
-Microsoft-3D-Emoji-Picker is an emoji picker made using the 3D version of Microsoft Fluent Emoji.
-When you select an emoji, you can access its image icon.
-
-※Strictly speaking, it's not an 'emoji picker' per se, but rather a picker for obtaining emoji icons. Therefore, it cannot be used as Unicode characters, like text.
-※Do not use not on **Node.js**.
+<div align="center">
+  <h1>😊Microsoft 3D Emoji Picker😊</h1>
+  <br><b>Microsoft 3D Emoji Picker</b> is an emoji picker.
+  <br>This's made using the 3D version of <a href="https://github.com/microsoft/fluentui-emoji">Microsoft Fluent Emoji.</a><br>
+  <br>When you select an emoji, you can access its image icon.<br>
+  <br><br><br><img width="357" alt="image" src="https://github.com/yajihum/microsoft-3d-emoji-picker/assets/117247060/b672a3da-6cdd-4213-b2eb-e44720c7606d"><br><br>
+</div>
 
 ## 📕Installation
 
@@ -12,8 +12,6 @@ When you select an emoji, you can access its image icon.
 
 ```
 npm install ms-3d-emoji-picker
-yarn add ms-3d-emoji-picker
-pnpm add ms-3d-emoji-picker
 ```
 
 2. Add the CSS file import where the Picker component is used
@@ -60,9 +58,15 @@ selectedEmoji's data example
 | **isOpen**        | `false` | Whether a picker should open       |
 | **onEmojiSelect** | `{}`    | Callback when an emoji is selected |
 
+## Attension
+
+※Strictly speaking, it's not an 'emoji picker' per se, but rather a picker for obtaining emoji icons.  
+Therefore, it cannot be used as Unicode characters, like text.  
+※Do not use not on **Node.js**.
+
 ## 📘Lisence
 
-This is a emoji picker of Microsoft Fluent Emoji.
+This is a emoji picker of [Microsoft Fluent Emoji](https://github.com/microsoft/fluentui-emoji).
 
 ### Third party License
 
