@@ -8,17 +8,16 @@
     "strict": true,
     "jsx": "react",
     "outDir": "./dist",
-    //"composite": true,
     "skipLibCheck": true,
-    "isolatedModules": true,
     "allowSyntheticDefaultImports": true,
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "stripInternal": true,
     "forceConsistentCasingInFileNames": true,
     "declaration": true,
-    "declarationDir": "dist",
-    "types": ["vitest/globals"],
-    "rootDir": "./src"
+    "emitDeclarationOnly": true,
+    "declarationDir": "types",
+    "rootDir": "./src",
+    "isolatedModules": true
   },
   "include": ["vite.config.js", "src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["**/tests/**", "**/*.test.tsx"]

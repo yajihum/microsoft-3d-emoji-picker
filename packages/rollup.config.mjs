@@ -5,7 +5,7 @@ import pkg from "./package.json" assert { type: "json" };
 
 export default [
   {
-    input: "./src/index.ts",
+    input: "src/index.ts",
     output: [
       {
         file: pkg.main,
@@ -19,23 +19,27 @@ export default [
       },
     ],
     plugins: [
-      commonjs({
-        include: ["node_modules/**"],
-      }),
       typescript({
         tsconfig: "./tsconfig.json",
       }),
-      dts(),
+      commonjs({
+        include: ["node_modules/**"],
+      }),
     ],
     external: ["react", "react-dom", "tailwindcss", "clsx"],
   },
   {
-    input: "dist/index.d.ts",
+    input: "src/index.ts", // ソースファイルを直接指定
+    output: [{ file: "dist/index.d.ts", format: "es" }], // 目的のパスに出力
+    plugins: [dts()],
+  },
+  {
+    input: "dist/cjs/types/index.d.ts",
     output: [{ file: "dist/cjs/index.d.ts", format: "cjs" }],
     plugins: [dts()],
   },
   {
-    input: "dist/index.d.ts",
+    input: "dist/esm/types/index.d.ts",
     output: [{ file: "dist/esm/index.d.ts", format: "esm" }],
     plugins: [dts()],
   },
