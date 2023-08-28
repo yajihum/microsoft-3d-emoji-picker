@@ -1,7 +1,6 @@
 import { EmojiType, Picker } from "ms-3d-emoji-picker";
 import "ms-3d-emoji-picker/styles/index.css";
-import React, { useState } from "react";
-import "./App.css";
+import { useState } from "react";
 
 const dummyWords = `ごめん、同級会には行けません。 いま、シンガポールにいます。
 この国を南北に縦断する地下鉄を、私は作っています。
