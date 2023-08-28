@@ -1,11 +1,11 @@
-export type Emoji = {
+export type EmojiType = {
   url: string;
   category: string;
   name: string;
   extension: "png";
 };
 
-export type CategoryName =
+export type CategoryNameType =
   | "smilieys"
   | "people"
   | "animals-and-nature"
@@ -16,9 +16,9 @@ export type CategoryName =
   | "symbols";
 
 export type EmojiList = {
-  categoryName: CategoryName;
+  categoryName: CategoryNameType;
   categoryLabel: string;
-  emojiImages: Emoji[];
+  emojiImages: EmojiType[];
 };
 
-export type HandleEmojiClickType = (selectedEmoji: Emoji) => void;
+export type HandleEmojiClickType = (selectedEmoji: EmojiType) => void;

@@ -2,7 +2,7 @@ import clsx from "clsx";
 import React, { useContext, useEffect, useState } from "react";
 import { ActiveCategoryContext } from "../../context";
 import { categoryNames } from "../../data";
-import { CategoryName } from "../../type";
+import { CategoryNameType } from "../../type";
 import { Button } from "../atoms/Button/Button";
 import {
   AppleIcon,
@@ -16,12 +16,12 @@ import {
 } from "../atoms/Svg/SvgIcons";
 
 type NavIconType = {
-  name: CategoryName;
+  name: CategoryNameType;
   element: JSX.Element;
   isActive: boolean;
 };
 
-const iconComponents: Record<CategoryName, JSX.Element> = {
+const iconComponents: Record<CategoryNameType, JSX.Element> = {
   smilieys: <SmileyFaceIcon key="smilieys" />,
   people: <PeopleIcon key="people" />,
   "animals-and-nature": <DogIcon key="animalsAndNatureog" />,

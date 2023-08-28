@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef } from "react";
 import { ActiveCategoryContext, HandleEmojiClickContext } from "../../context";
-import { Emoji, EmojiList } from "../../type";
+import { EmojiList, EmojiType } from "../../type";
 
 type Props = {
   emojiImageList: EmojiList;
@@ -63,7 +63,7 @@ export const Category = React.forwardRef<HTMLDivElement, Props>(
           {emojiImageList.categoryLabel}
         </h2>
         <div className="grid grid-cols-8">
-          {emojiImageList.emojiImages.map((emoji: Emoji) => (
+          {emojiImageList.emojiImages.map((emoji: EmojiType) => (
             <button
               type="button"
               onClick={() => {
