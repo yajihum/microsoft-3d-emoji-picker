@@ -15,14 +15,13 @@ function App() {
 
   return (
     <main className="px-44 py-10 min-h-screen bg-orange-100">
-      <div className="bg-white rounded-xl p-6 grid grid-cols-1 gap-8">
-        <section className="grid grid-cols-1 gap-6">
-          <div className="text-lg text-right text-gray-500">
+      <div className="bg-white rounded-xl p-6 grid grid-cols-1 gap-4">
+        <section className="grid grid-cols-1 gap-2">
+          <div className="text-right text-sm text-gray-500">
             <p>2023年8月12日(土)</p>
             <p>天気：🌤️</p>
           </div>
           <p className="whitespace-break-spaces">{dummyWords}</p>
-          <p>やすおより</p>
         </section>
         <section>
           <div>
