@@ -1,4 +1,3 @@
-
 <div align="center">
   <h1>😊Microsoft 3D Emoji Picker😊</h1>
   <br><b>Microsoft 3D Emoji Picker</b> is an emoji picker.
@@ -13,8 +12,6 @@
 
 ```
 npm install ms-3d-emoji-picker
-yarn add ms-3d-emoji-picker
-pnpm add ms-3d-emoji-picker
 ```
 
 2. Add the CSS file import where the Picker component is used
@@ -62,7 +59,8 @@ selectedEmoji's data example
 | **onEmojiSelect** | `{}`    | Callback when an emoji is selected |
 
 ## Attension
-※Strictly speaking, it's not an 'emoji picker' per se, but rather a picker for obtaining emoji icons.   
+
+※Strictly speaking, it's not an 'emoji picker' per se, but rather a picker for obtaining emoji icons.  
 Therefore, it cannot be used as Unicode characters, like text.  
 ※Do not use not on **Node.js**.
 
