@@ -58,11 +58,11 @@ selectedEmoji's data example
 | **isOpen**        | `false` | Whether a picker should open       |
 | **onEmojiSelect** | `{}`    | Callback when an emoji is selected |
 
-## Attension
+## 📙Attension
 
-※Strictly speaking, it's not an 'emoji picker' per se, but rather a picker for obtaining emoji icons.  
-Therefore, it cannot be used as Unicode characters, like text.  
-※Do not use not on **Node.js**.
+- Strictly speaking, it's not an 'emoji picker' per se, but rather a picker for obtaining emoji icons.  
+  Therefore, it cannot be used as Unicode characters, like text.
+- Do not use not on **Node.js**.
 
 ## 📘Lisence
 
