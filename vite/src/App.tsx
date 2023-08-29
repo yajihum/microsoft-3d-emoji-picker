@@ -13,14 +13,6 @@ function App() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedEmoji, setSelectedEmoji] = useState<EmojiType | null>(null);
 
-  const handlePickerOpen = () => {
-    if (isOpen) {
-      setIsOpen(false);
-    } else {
-      setIsOpen(true);
-    }
-  };
-
   return (
     <main className="container mx-auto my-auto p-4 md:p-12">
       <div className="bg-white rounded-xl p-6 grid grid-cols-1 gap-4">
@@ -36,7 +28,16 @@ function App() {
         <section>
           <div>
             {selectedEmoji ? (
-              <button type="button" onClick={() => handlePickerOpen}>
+              <button
+                type="button"
+                onClick={() => {
+                  if (isOpen) {
+                    setIsOpen(false);
+                  } else {
+                    setIsOpen(true);
+                  }
+                }}
+              >
                 <img
                   src={selectedEmoji.url}
                   alt={selectedEmoji.name}
