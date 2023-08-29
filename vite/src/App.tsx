@@ -13,29 +13,30 @@ function App() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedEmoji, setSelectedEmoji] = useState<EmojiType | null>(null);
 
+  const handlePickerOpen = () => {
+    if (isOpen) {
+      setIsOpen(false);
+    } else {
+      setIsOpen(true);
+    }
+  };
+
   return (
-    <main className="px-44 py-10 min-h-screen bg-orange-100">
+    <main className="container mx-auto my-auto p-4 md:p-12">
       <div className="bg-white rounded-xl p-6 grid grid-cols-1 gap-4">
         <section className="grid grid-cols-1 gap-2">
           <div className="text-right text-sm text-gray-500">
             <p>2023年8月12日(土)</p>
             <p>天気：🌤️</p>
           </div>
-          <p className="whitespace-break-spaces">{dummyWords}</p>
+          <p className="whitespace-break-spaces text-sm md:text-base">
+            {dummyWords}
+          </p>
         </section>
         <section>
           <div>
             {selectedEmoji ? (
-              <button
-                type="button"
-                onClick={() => {
-                  if (isOpen) {
-                    setIsOpen(false);
-                  } else {
-                    setIsOpen(true);
-                  }
-                }}
-              >
+              <button type="button" onClick={() => handlePickerOpen}>
                 <img
                   src={selectedEmoji.url}
                   alt={selectedEmoji.name}
@@ -45,15 +46,29 @@ function App() {
                 />
               </button>
             ) : (
-              <button
-                type="button"
-                onClick={() => {
-                  setIsOpen(true);
-                }}
-                className="inline bg-blue-100 rounded-lg px-2 py-1"
-              >
-                ＋
-              </button>
+              <>
+                {isOpen ? (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsOpen(false);
+                    }}
+                    className="inline bg-blue-100 rounded-lg px-2 py-1"
+                  >
+                    ー
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsOpen(true);
+                    }}
+                    className="inline bg-blue-100 rounded-lg px-2 py-1"
+                  >
+                    ＋
+                  </button>
+                )}
+              </>
             )}
           </div>
           <div className="absolute z-10 my-1">
