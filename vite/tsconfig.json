@@ -1,24 +1,23 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    "target": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "module": "ESNext",
-    "lib": ["esnext", "dom"],
-    "allowJs": true,
-    "esModuleInterop": true,
-    "strict": true,
-    "jsx": "react",
-    "outDir": "./dist",
-    "composite": true,
     "skipLibCheck": true,
-    "isolatedModules": true,
-    "allowSyntheticDefaultImports": true,
+
+    /* Bundler mode */
     "moduleResolution": "bundler",
-    "stripInternal": true,
-    "forceConsistentCasingInFileNames": true,
-    "declaration": true,
-    "declarationDir": "dist",
-    "types": ["vitest/globals"]
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
   },
-  "include": ["vite.config.js", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "packages/**/dist/**"]
+  "include": ["src"]
 }
