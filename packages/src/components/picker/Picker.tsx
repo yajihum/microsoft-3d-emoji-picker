@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import React, { useEffect, useRef, useState } from "react";
 import { ActiveCategoryContext, HandleEmojiClickContext } from "../../context";
 import { HandleEmojiClickType } from "../../type";
@@ -11,7 +12,8 @@ type Props = {
 
 export const Picker = ({ isOpen = false, onEmojiSelect = () => {} }: Props) => {
   const [activeCategory, setActiveCategory] = useState<string>("smilieys");
-  const dialogRef = useRef<HTMLDialogElement | null>(null);
+  const [isShowClass, setIsShowClass] = useState<string>("hidden");
+  const pickerRef = useRef<HTMLDivElement>(null);
 
   const toggleActiveCategory = (category: string) => {
     setActiveCategory(category);
@@ -19,19 +21,19 @@ export const Picker = ({ isOpen = false, onEmojiSelect = () => {} }: Props) => {
 
   useEffect(() => {
     if (isOpen) {
-      dialogRef.current?.show();
+      setIsShowClass("block");
     } else {
-      dialogRef.current?.close();
+      setIsShowClass("hidden");
     }
   }, [isOpen]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
-        dialogRef.current &&
-        !dialogRef.current.contains(event.target as Node)
+        pickerRef.current &&
+        !pickerRef.current.contains(event.target as Node)
       ) {
-        dialogRef.current.close();
+        setIsShowClass("hidden");
       }
     };
 
@@ -42,10 +44,9 @@ export const Picker = ({ isOpen = false, onEmojiSelect = () => {} }: Props) => {
   }, []);
 
   return (
-    <dialog
+    <div
       aria-label="Emoji Picker"
-      ref={dialogRef}
-      className="shadow-xl rounded-2xl bg-white w-80"
+      className={clsx("shadow-xl rounded-2xl bg-white w-80", isShowClass)}
     >
       <ActiveCategoryContext.Provider
         value={{ activeCategory, toggleActiveCategory }}
@@ -55,6 +56,6 @@ export const Picker = ({ isOpen = false, onEmojiSelect = () => {} }: Props) => {
           <EmojiSection />
         </HandleEmojiClickContext.Provider>
       </ActiveCategoryContext.Provider>
-    </dialog>
+    </div>
   );
 };
