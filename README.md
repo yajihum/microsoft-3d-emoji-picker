@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>😊Microsoft 3D Emoji Picker😊</h1>
+  <h1>Microsoft 3D Emoji Picker</h1>
   <br><b>Microsoft 3D Emoji Picker</b> is an emoji picker.
   <br>This's made using the 3D version of <a href="https://github.com/microsoft/fluentui-emoji">Microsoft Fluent Emoji.</a><br>
   <br>When you select an emoji, you can access its image icon.<br>
@@ -72,7 +72,7 @@ This is a emoji picker of [Microsoft Fluent Emoji](https://github.com/microsoft/
 
 This project makes use of the following open-source software.
 
-#### Fluent Emoji
+### Fluent Emoji
 
 - Link：[GitHub](https://github.com/microsoft/fluentui-emoji)
 - License：MIT License
