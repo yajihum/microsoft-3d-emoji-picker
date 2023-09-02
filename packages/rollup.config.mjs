@@ -26,7 +26,7 @@ export default [
         include: ["node_modules/**"],
       }),
     ],
-    external: ["react", "react-dom", "tailwindcss", "clsx"],
+    external: ["react", "react-dom"],
   },
   {
     input: "src/index.ts", // ソースファイルを直接指定
