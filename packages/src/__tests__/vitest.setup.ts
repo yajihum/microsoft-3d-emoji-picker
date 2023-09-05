@@ -1,5 +1,9 @@
 import "@testing-library/jest-dom";
-import matchers from "@testing-library/jest-dom/matchers";
-import { expect } from "vitest";
+import { cleanup } from "@testing-library/react";
+import { beforeEach } from "vitest";
 
-expect.extend(matchers);
+// expect.extend(matchers);
+
+beforeEach(() => {
+  cleanup();
+});
