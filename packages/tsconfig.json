@@ -17,8 +17,9 @@
     "emitDeclarationOnly": true,
     "declarationDir": "types",
     "rootDir": "./src",
-    "isolatedModules": true
+    "isolatedModules": true,
+    "types": ["vitest/globals"]
   },
-  "include": ["vite.config.js", "src/**/*.ts", "src/**/*.tsx"],
-  "exclude": ["**/tests/**", "**/*.test.tsx"]
+  "include": ["src/vitest.config.ts", "src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["**/tests/**"]
 }
