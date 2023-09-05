@@ -45,7 +45,8 @@ export const Picker = ({ isOpen = false, onEmojiSelect = () => {} }: Props) => {
 
   return (
     <div
-      aria-label="Emoji Picker"
+      role="region"
+      aria-label="Picker"
       className={clsx("shadow-xl rounded-2xl bg-white w-80", isShowClass)}
     >
       <ActiveCategoryContext.Provider
