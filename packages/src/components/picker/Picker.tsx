@@ -1,8 +1,9 @@
 import clsx from "clsx";
 import React, { useEffect, useRef, useState } from "react";
-import { ActiveCategoryContext, HandleEmojiClickContext } from "../../context";
 import { HandleEmojiClickType } from "../../type";
-import EmojiSection from "../emoji/EmojiSection";
+import { ActiveCategoryContext } from "../emoji/Category/ActiveCategoryContext";
+import EmojiSection from "../emoji/EmojiSection/EmojiSection";
+import { HandleEmojiClickContext } from "../emoji/EmojiSection/HandleEmojiClickContext";
 import NavigationSection from "../navigation/NavigationSection";
 
 type Props = {
