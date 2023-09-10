@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
-import { EmojiList } from "../../type";
-import { fetchEmojiList } from "../../util";
-import Category from "./Category";
+import { EmojiList } from "../../../type";
+import { fetchEmojiList } from "../../../util";
+import Category from "../Category/Category";
 
 export default function EmojiSection() {
   const containerRef = useRef<HTMLDivElement | null>(null);

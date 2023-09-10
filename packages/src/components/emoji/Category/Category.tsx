@@ -1,6 +1,7 @@
-import React, { useContext, useEffect, useRef } from "react";
-import { ActiveCategoryContext, HandleEmojiClickContext } from "../../context";
-import { EmojiList, EmojiType } from "../../type";
+import React, { useEffect, useRef } from "react";
+import { EmojiList, EmojiType } from "../../../type";
+import { useHandleEmojiClick } from "../EmojiSection/useHandleEmojiClick";
+import { useActiveCategory } from "./useActiveCategory";
 
 type Props = {
   emojiImageList: EmojiList;
@@ -13,8 +14,8 @@ export const Category = React.forwardRef<HTMLDivElement, Props>(
     );
     const rootElement =
       typeof ref === "object" && ref && ref.current ? ref.current : null;
-    const { toggleActiveCategory } = useContext(ActiveCategoryContext);
-    const { onEmojiSelect } = useContext(HandleEmojiClickContext);
+    const { toggleActiveCategory } = useActiveCategory();
+    const { onEmojiSelect } = useHandleEmojiClick();
 
     useEffect(() => {
       const observer = new IntersectionObserver(

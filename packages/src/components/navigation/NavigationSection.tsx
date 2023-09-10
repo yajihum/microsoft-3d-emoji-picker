@@ -1,6 +1,5 @@
 import clsx from "clsx";
-import React, { useContext, useEffect, useState } from "react";
-import { ActiveCategoryContext } from "../../context";
+import React, { useEffect, useState } from "react";
 import { categoryNames } from "../../data";
 import { CategoryNameType } from "../../type";
 import { Button } from "../atoms/Button/Button";
@@ -14,6 +13,7 @@ import {
   SmileyFaceIcon,
   SymbolIcon,
 } from "../atoms/Svg/SvgIcons";
+import { useActiveCategory } from "../emoji/Category/useActiveCategory";
 
 type NavIconType = {
   name: CategoryNameType;
@@ -64,7 +64,7 @@ const handleButtonClick = (categoryName: string) => {
 };
 
 export default function NavigationSection() {
-  const { activeCategory } = useContext(ActiveCategoryContext);
+  const { activeCategory } = useActiveCategory();
   const [navIcons, setNavIcons] = useState<NavIconType[]>(initisalNavIcons);
 
   useEffect(() => {
@@ -93,9 +93,6 @@ export default function NavigationSection() {
             {icon.element}
           </Button>
         ))}
-        {/* <div
-          className={"h-0.5 w-full border border-blue-500 bg-blue-500"}
-        ></div> */}
       </div>
     </nav>
   );
