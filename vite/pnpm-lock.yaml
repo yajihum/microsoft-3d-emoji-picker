@@ -12,8 +12,8 @@ dependencies:
     specifier: ^2.0.0
     version: 2.0.0
   ms-3d-emoji-picker:
-    specifier: ^1.0.2
-    version: 1.0.2(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^1.2.0
+    version: 1.2.0(react-dom@18.2.0)(react@18.2.0)
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -2237,8 +2237,8 @@ packages:
       ufo: 1.3.0
     dev: true
 
-  /ms-3d-emoji-picker@1.0.2(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-Y0fihzbdVoJJXxO0+rs3Ha3YcaJs9YJq0PzlQ6/eDbjvGTXOsUGwuQ6863nQo4HB2qIQWLamwTrTFl5fJJ85gA==}
+  /ms-3d-emoji-picker@1.2.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-CHRFWKZ04RnT0fBHWWhgHBVLQ1IfIM879CXN+WJVMccbSoOha7ijCXZvlMtD74H/VYSe5GO0VVekJOmmCiRarg==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
