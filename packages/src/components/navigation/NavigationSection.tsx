@@ -1,8 +1,7 @@
-import clsx from "clsx";
-import React, { useEffect, useState } from "react";
-import { categoryNames } from "../../data";
-import { CategoryNameType } from "../../type";
-import { Button } from "../atoms/Button/Button";
+import React, { useEffect, useState } from 'react';
+import { categoryNames } from '../../data';
+import { CategoryNameType } from '../../type';
+import { Button } from '../atoms/Button/Button';
 import {
   AppleIcon,
   BallIcon,
@@ -12,8 +11,9 @@ import {
   PlanetIcon,
   SmileyFaceIcon,
   SymbolIcon,
-} from "../atoms/Svg/SvgIcons";
-import { useActiveCategory } from "../emoji/Category/useActiveCategory";
+} from '../atoms/Svg/SvgIcons';
+import { useActiveCategory } from '../emoji/Category/useActiveCategory';
+import styles from './NavigationSection.module.css';
 
 type NavIconType = {
   name: CategoryNameType;
@@ -24,10 +24,10 @@ type NavIconType = {
 const iconComponents: Record<CategoryNameType, JSX.Element> = {
   smilieys: <SmileyFaceIcon key="smilieys" />,
   people: <PeopleIcon key="people" />,
-  "animals-and-nature": <DogIcon key="animalsAndNatureog" />,
+  'animals-and-nature': <DogIcon key="animalsAndNatureog" />,
   food: <AppleIcon key="food" />,
   activity: <BallIcon key="activity" />,
-  "travel-and-place": <PlanetIcon key="travelAndPlace" />,
+  'travel-and-place': <PlanetIcon key="travelAndPlace" />,
   objects: <LightBulbIcon key="objects" />,
   symbols: <SymbolIcon key="symbols" />,
 };
@@ -59,7 +59,7 @@ const getNewNavIcons = (navIcons: NavIconType[], activeCategory: string) => {
 const handleButtonClick = (categoryName: string) => {
   const sectionElement = document.getElementById(categoryName);
   if (sectionElement) {
-    sectionElement.scrollIntoView({ behavior: "instant" }); // スムーズスクロール
+    sectionElement.scrollIntoView({ behavior: 'instant' }); // スムーズスクロール
   }
 };
 
@@ -73,8 +73,8 @@ export default function NavigationSection() {
   }, [activeCategory]);
 
   return (
-    <nav className="border-b-2 border-gray-100">
-      <div className="grid grid-cols-8 justify-items-center pr-5 pl-3 py-3">
+    <nav className={styles.navigation}>
+      <div className={styles.gridContainer}>
         {navIcons.map((icon) => (
           <Button
             type="button"
@@ -83,12 +83,9 @@ export default function NavigationSection() {
               handleButtonClick(icon.name);
             }}
             key={icon.element.key}
-            className={clsx(
-              "w-7 h-7 fill-current",
-              icon.isActive
-                ? "text-blue-600 underline underline-offset-2"
-                : "text-gray-400"
-            )}
+            className={`${styles.button} ${
+              icon.isActive ? styles.activeButton : styles.inactiveButton
+            }`}
           >
             {icon.element}
           </Button>

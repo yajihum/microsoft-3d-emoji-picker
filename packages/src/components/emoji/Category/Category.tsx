@@ -1,7 +1,8 @@
-import React, { useEffect, useRef } from "react";
-import { EmojiList, EmojiType } from "../../../type";
-import { useHandleEmojiClick } from "../EmojiSection/useHandleEmojiClick";
-import { useActiveCategory } from "./useActiveCategory";
+import React, { useEffect, useRef } from 'react';
+import { EmojiList, EmojiType } from '../../../type';
+import { useHandleEmojiClick } from '../EmojiSection/useHandleEmojiClick';
+import styles from './Category.module.css';
+import { useActiveCategory } from './useActiveCategory';
 
 type Props = {
   emojiImageList: EmojiList;
@@ -13,7 +14,7 @@ export const Category = React.forwardRef<HTMLDivElement, Props>(
       {}
     );
     const rootElement =
-      typeof ref === "object" && ref && ref.current ? ref.current : null;
+      typeof ref === 'object' && ref && ref.current ? ref.current : null;
     const { toggleActiveCategory } = useActiveCategory();
     const { onEmojiSelect } = useHandleEmojiClick();
 
@@ -32,7 +33,7 @@ export const Category = React.forwardRef<HTMLDivElement, Props>(
         },
         {
           root: rootElement,
-          rootMargin: "0px 0px -100px 0px",
+          rootMargin: '0px 0px -100px 0px',
         }
       );
 
@@ -52,18 +53,18 @@ export const Category = React.forwardRef<HTMLDivElement, Props>(
       <section
         id={emojiImageList.categoryName}
         key={emojiImageList.categoryName}
-        className="grid gap-1"
+        className={styles.section}
       >
         <h2
           id={emojiImageList.categoryName}
           ref={(el) => {
             categoryRefs.current[emojiImageList.categoryLabel] = el;
           }}
-          className="text-gray-500 text-sm pl-1 pt-2 pb-1.5 sticky top-0 backdrop-blur transition-colors bg-white/90"
+          className={styles.heading}
         >
           {emojiImageList.categoryLabel}
         </h2>
-        <div className="grid grid-cols-8">
+        <div className={styles.gridContainer}>
           {emojiImageList.emojiImages.map((emoji: EmojiType) => (
             <button
               type="button"
@@ -71,12 +72,11 @@ export const Category = React.forwardRef<HTMLDivElement, Props>(
                 onEmojiSelect(emoji);
               }}
               key={emoji.name}
-              className="hover:bg-blue-100 rounded-md p-0.5"
+              className={styles.button}
             >
               <img
                 src={`https://cdn.emoji.yajium.day/${emoji.category}/${emoji.name}.${emoji.extension}`}
-                width={30}
-                height={30}
+                className={styles.image}
                 alt={`${emoji.category} | ${emoji.name}`}
               />
             </button>

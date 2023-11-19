@@ -1,0 +1,29 @@
+.section {
+  padding-left: 1rem; /* pl-4 */
+  padding-bottom: 1rem; /* pb-4 */
+}
+
+.container {
+  display: grid;
+  grid-row-gap: 0.75rem; /* gap-3 */
+  overflow: auto;
+  height: 24rem; /* h-96 */
+  scrollbar-color: #eaeaea #ffffff; /* Firefox用のスクロールバーの色 */
+  scrollbar-width: thin; /* Firefox用のスクロールバーの幅 */
+}
+
+/* Webkitブラウザ用のスクロールバーのスタイル */
+:global(.container::-webkit-scrollbar) {
+  width: 20px;
+}
+
+:global(.container::-webkit-scrollbar-track) {
+  background: #ffffff;
+}
+
+:global(.container::-webkit-scrollbar-thumb) {
+  background: #eaeaea;
+  border-radius: 100vh;
+  border: 5px solid #ffffff;
+  height: 80px;
+}

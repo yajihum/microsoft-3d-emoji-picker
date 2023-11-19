@@ -1,17 +1,19 @@
-import clsx from "clsx";
-import React, { forwardRef } from "react";
+import React, { forwardRef } from 'react';
+import styles from './Button.module.css';
 
-type Props = { className: string } & React.ComponentPropsWithoutRef<"button">;
+type Props = { className?: string } & React.ComponentPropsWithoutRef<'button'>;
 
 export const Button = forwardRef<HTMLButtonElement, Props>(function ButtonBase(
   { className, children, ...props },
   ref
 ) {
-  return children ? (
-    <button {...props} ref={ref} className={clsx(className, "p-1")}>
+  const buttonClass = className
+    ? `${styles.button} ${className}`
+    : styles.button;
+
+  return (
+    <button {...props} ref={ref} className={buttonClass}>
       {children}
     </button>
-  ) : (
-    <button {...props} ref={ref} className={clsx(className, "p-1")} />
   );
 });

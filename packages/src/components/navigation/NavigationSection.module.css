@@ -1,0 +1,29 @@
+.navigation {
+  border-bottom: 2px solid #f3f4f6; /* border-gray-100 */
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  justify-items: center;
+  padding-right: 1.25rem; /* pr-5 */
+  padding-left: 0.75rem; /* pl-3 */
+  padding-top: 0.75rem; /* py-3 */
+  padding-bottom: 0.75rem; /* py-3 */
+}
+
+.button {
+  width: 1.75rem; /* w-7 */
+  height: 1.75rem; /* h-7 */
+  fill: currentColor;
+}
+
+.activeButton {
+  color: #2563eb; /* text-blue-600 */
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.inactiveButton {
+  color: #9ca3af; /* text-gray-400 */
+}
