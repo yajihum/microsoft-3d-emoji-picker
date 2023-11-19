@@ -14,17 +14,27 @@
 npm install ms-3d-emoji-picker
 ```
 
-2. Add the CSS file import where the Picker component is used
+2. Add imports for Picker and EmojiType, and use the Picker component.
 
-```ts
-import 'ms-3d-emoji-picker/styles/index.css';
+```tsx
+import { Picker, EmojiType } from 'ms-3d-emoji-picker';
+
+export const EmojiPicker = () => {
+  return (
+    <Picker
+      isOpen={true}
+      onEmojiSelect={(selectedEmoji: EmojiType) => console.log(selectedEmoji)}
+    />
+  );
+};
 ```
+
+With this, you can use the emoji picker right away!
 
 ## 📗Example
 
 ```tsx
 import { Picker, EmojiType } from 'ms-3d-emoji-picker';
-import 'ms-3d-emoji-picker/styles/index.css';
 
 function App() {
   return (
