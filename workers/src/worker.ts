@@ -4,7 +4,7 @@ export interface Env {
 }
 
 export default {
-	async fetch(request: Request, env: Env) {
+	async fetch(request: Request, env: Env, ctx: ExecutionContext) {
 		const url = new URL(request.url);
 		const corsHeaders = {
 			'Access-Control-Allow-Origin': '*',
@@ -14,19 +14,31 @@ export default {
 
 		switch (request.method) {
 			case 'GET':
+				const cacheKey = new Request(url.toString(), request);
+				const cache = caches.default;
+				const cachedRes = await cache.match(cacheKey);
+
+				if (cachedRes) return cachedRes;
+
 				const category = url.searchParams.get('category') ?? '';
 				const options: R2ListOptions = {
 					prefix: category !== '' ? category : undefined,
 				};
 				const listed = await env.MY_BUCKET.list(options);
-
 				const keys = listed.objects.map((object: R2Object) => object.key.replace(`${category}/`, ''));
-				return new Response(JSON.stringify(keys), {
+
+				const res = new Response(JSON.stringify(keys), {
 					headers: {
 						...corsHeaders,
-						'content-type': 'application/json; charset=UTF-8',
+						'Content-Type': 'application/json; charset=UTF-8',
+						'Cache-Control': 'public, s-maxage=1209600',
 					},
 				});
+				res.headers.set('Etag', `${listed.objects[0].etag}`);
+
+				ctx.waitUntil(cache.put(cacheKey, res.clone()));
+
+				return res;
 			default:
 				return new Response(`${request.method} is not allowed.`, {
 					status: 405,
