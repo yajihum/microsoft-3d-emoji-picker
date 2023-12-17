@@ -1,5 +1,5 @@
+import { EmojiType, Picker } from 'ms-3d-emoji-picker';
 import { useState } from 'react';
-import { Picker, EmojiType } from 'ms-3d-emoji-picker';
 
 const dummyWords = `ごめん、同級会には行けません。 いま、シンガポールにいます。
 この国を南北に縦断する地下鉄を、私は作っています。
@@ -74,7 +74,7 @@ function App() {
           <div className="absolute z-10 my-1">
             <Picker
               isOpen={isOpen}
-              onEmojiSelect={(selectedEmoji: EmojiType) => {
+              handleEmojiSelect={(selectedEmoji: EmojiType) => {
                 setSelectedEmoji(selectedEmoji);
                 setIsOpen(false);
               }}
