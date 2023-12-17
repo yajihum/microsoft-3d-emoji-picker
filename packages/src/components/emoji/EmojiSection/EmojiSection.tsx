@@ -1,10 +1,10 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useRef } from 'react';
 import { emojiCategories } from '../../../data';
-import CategorySection from '../Category/CategorySection';
+import { CategorySection } from '../Category/CategorySection';
 import styles from './EmojiSection.module.css';
 
-export default function EmojiSection() {
+export const EmojiSection = () => {
   const queryClient = new QueryClient();
 
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -20,4 +20,4 @@ export default function EmojiSection() {
       </QueryClientProvider>
     </section>
   );
-}
+};

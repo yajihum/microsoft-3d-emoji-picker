@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { categoryNames } from '../../data';
 import { CategoryNameType } from '../../type';
 import { Button } from '../atoms/Button/Button';
@@ -63,7 +63,7 @@ const handleButtonClick = (categoryName: string) => {
   }
 };
 
-export default function NavigationSection() {
+export const NavigationSection = () => {
   const { activeCategory } = useActiveCategory();
   const [navIcons, setNavIcons] = useState<NavIconType[]>(initisalNavIcons);
 
@@ -93,4 +93,4 @@ export default function NavigationSection() {
       </div>
     </nav>
   );
-}
+};

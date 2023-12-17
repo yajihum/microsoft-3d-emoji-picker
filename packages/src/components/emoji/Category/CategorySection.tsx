@@ -112,5 +112,3 @@ export const CategorySection = forwardRef<HTMLDivElement, Props>(
     );
   }
 );
-
-export default CategorySection;

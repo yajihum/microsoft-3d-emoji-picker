@@ -30,7 +30,12 @@ export default [
         extensions: ['.css'],
       }),
     ],
-    external: ['react', 'react-dom'],
+    external: [
+      'react',
+      'react-dom',
+      'react/jsx-runtime',
+      '@tanstack/react-query',
+    ],
   },
   {
     input: 'src/index.ts', // ソースファイルを直接指定

@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { HandleEmojiClickType } from '../../type';
 import { ActiveCategoryContext } from '../emoji/Category/ActiveCategoryContext';
-import EmojiSection from '../emoji/EmojiSection/EmojiSection';
+import { EmojiSection } from '../emoji/EmojiSection/EmojiSection';
 import { HandleEmojiClickContext } from '../emoji/EmojiSection/HandleEmojiClickContext';
-import NavigationSection from '../navigation/NavigationSection';
+import { NavigationSection } from '../navigation/NavigationSection';
 import styles from './Picker.module.css';
 
 type Props = {
