@@ -23,7 +23,7 @@ export const EmojiPicker = () => {
   return (
     <Picker
       isOpen={true}
-      onEmojiSelect={(selectedEmoji: EmojiType) => console.log(selectedEmoji)}
+      handleEmojiSelect={(selectedEmoji: EmojiType) => console.log(selectedEmoji)}
     />
   );
 };
@@ -41,7 +41,7 @@ function App() {
     <main>
       <Picker
         isOpen={true}
-        onEmojiSelect={(selectedEmoji: EmojiType) => console.log(selectedEmoji)}
+        handleEmojiSelect={(selectedEmoji: EmojiType) => console.log(selectedEmoji)}
       />
     </main>
   );
@@ -66,7 +66,7 @@ selectedEmoji's data example
 | Option            | Default | Description                        |
 | ----------------- | ------- | ---------------------------------- |
 | **isOpen**        | `false` | Whether a picker should open       |
-| **onEmojiSelect** | `{}`    | Callback when an emoji is selected |
+| **handleEmojiSelect** | `{}`    | Callback when an emoji is selected |
 
 ## 📙Attention
 
