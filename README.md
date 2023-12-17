@@ -3,7 +3,7 @@
   <br><b>Microsoft 3D Emoji Picker</b> is an emoji picker.
   <br>This's made using the 3D version of <a href="https://github.com/microsoft/fluentui-emoji">Microsoft Fluent Emoji.</a><br>
   <br>When you select an emoji, you can access its image icon.<br>
-  <br><br><br><img width="338" alt="microsoft-emoji-picker" src="https://github.com/yajihum/microsoft-3d-emoji-picker/assets/117247060/9bfd7982-7de1-49d2-b922-4aec5a4cd95f">
+  <br><br><br><img width="332" alt="microsoft-3d-emoji-picker" src="https://github.com/yajihum/microsoft-3d-emoji-picker/assets/117247060/53e94c1f-e38b-4b0b-90a8-6143c115e7a9">
 <br><br>
 </div>
 
