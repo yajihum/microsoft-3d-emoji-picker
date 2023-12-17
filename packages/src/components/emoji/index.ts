@@ -1,2 +1,2 @@
-export * from "./Category/Category";
-export * from "./EmojiSection/EmojiSection";
+export * from './Category/CategorySection';
+export * from './EmojiSection/EmojiSection';

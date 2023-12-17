@@ -6,7 +6,7 @@
     "allowJs": true,
     "esModuleInterop": true,
     "strict": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "outDir": "./dist",
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,

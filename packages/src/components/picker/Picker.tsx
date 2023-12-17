@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { HandleEmojiClickType } from '../../type';
 import { ActiveCategoryContext } from '../emoji/Category/ActiveCategoryContext';
 import EmojiSection from '../emoji/EmojiSection/EmojiSection';
@@ -8,10 +8,13 @@ import styles from './Picker.module.css';
 
 type Props = {
   isOpen?: boolean;
-  onEmojiSelect?: HandleEmojiClickType;
+  handleEmojiSelect?: HandleEmojiClickType;
 };
 
-export const Picker = ({ isOpen = false, onEmojiSelect = () => {} }: Props) => {
+export const Picker = ({
+  isOpen = false,
+  handleEmojiSelect = () => {},
+}: Props) => {
   const [activeCategory, setActiveCategory] = useState<string>('smilieys');
   const [isShowClass, setIsShowClass] = useState<string>(styles.hidden);
 
@@ -31,7 +34,7 @@ export const Picker = ({ isOpen = false, onEmojiSelect = () => {} }: Props) => {
       <ActiveCategoryContext.Provider
         value={{ activeCategory, toggleActiveCategory }}
       >
-        <HandleEmojiClickContext.Provider value={{ onEmojiSelect }}>
+        <HandleEmojiClickContext.Provider value={{ handleEmojiSelect }}>
           <NavigationSection />
           <EmojiSection />
         </HandleEmojiClickContext.Provider>

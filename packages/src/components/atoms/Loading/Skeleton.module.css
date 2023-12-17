@@ -1,0 +1,17 @@
+.skeleton {
+  width: 30px;
+  height: 30px;
+  background-color: #e2dcdc;
+  border-radius: 8px;
+  animation: pulse 1.5s ease-in-out infinite; /* パルスアニメーション */
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}

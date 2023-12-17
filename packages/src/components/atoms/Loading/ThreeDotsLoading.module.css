@@ -1,0 +1,47 @@
+.ldsGrid {
+  display: block;
+  position: relative;
+  width: 70px;
+  height: 30px;
+  margin-right: 0.25rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  justify-self: center;
+}
+
+.ldsGridDiv {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #e2dcdc;
+  animation: ldsGridAnimation 1.2s linear infinite;
+}
+
+.ldsGridDiv1 {
+  top: 8px;
+  left: 8px;
+  animation-delay: 0s;
+}
+
+.ldsGridDiv2 {
+  top: 8px;
+  left: 32px;
+  animation-delay: -0.4s;
+}
+
+.ldsGridDiv3 {
+  top: 8px;
+  left: 56px;
+  animation-delay: -0.8s;
+}
+
+@keyframes ldsGridAnimation {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}

@@ -1,12 +1,12 @@
-import { createContext } from "react";
-import { HandleEmojiClickType } from "../../../type";
+import { createContext } from 'react';
+import { HandleEmojiClickType } from '../../../type';
 
 type HandleEmojiClickContextType = {
-  onEmojiSelect: HandleEmojiClickType;
+  handleEmojiSelect: HandleEmojiClickType;
 };
 
 const defaultHandleEmojiClickContextValue: HandleEmojiClickContextType = {
-  onEmojiSelect: () => {},
+  handleEmojiSelect: () => {},
 };
 
 export const HandleEmojiClickContext =
