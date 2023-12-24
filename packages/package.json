@@ -43,7 +43,7 @@
     "autoprefixer": "^10.4.15",
     "jsdom": "^23.0.0",
     "pnpm": "^8.6.12",
-    "postcss-cli": "^10.1.0",
+    "postcss-cli": "^11.0.0",
     "rollup": "^4.0.0",
     "rollup-plugin-dts": "^6.0.0",
     "rollup-plugin-postcss": "^4.0.2",
