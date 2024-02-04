@@ -65,7 +65,7 @@ export const CategorySection = forwardRef<HTMLDivElement, Props>(
 		useEffect(() => {
 			const observer = new IntersectionObserver(
 				(entries) => {
-					entries.forEach((entry) => {
+					for (const entry of entries) {
 						if (
 							entry.isIntersecting &&
 							entry.intersectionRatio > 0 &&
@@ -73,7 +73,7 @@ export const CategorySection = forwardRef<HTMLDivElement, Props>(
 						) {
 							toggleActiveCategory(entry.target.id);
 						}
-					});
+					}
 				},
 				{
 					root: rootElement,
@@ -81,16 +81,16 @@ export const CategorySection = forwardRef<HTMLDivElement, Props>(
 				},
 			);
 
-			Object.values(categoryRefs.current).forEach((ref) => {
+			for (const ref of Object.values(categoryRefs.current)) {
 				if (ref) observer.observe(ref);
-			});
+			}
 
 			return () => {
-				Object.values(categoryRefs.current).forEach((ref) => {
+				for (const ref of Object.values(categoryRefs.current)) {
 					if (ref) observer.unobserve(ref);
-				});
+				}
 			};
-		}, [toggleActiveCategory, categoryRefs, rootElement]);
+		}, [toggleActiveCategory, rootElement]);
 
 		return (
 			<section
