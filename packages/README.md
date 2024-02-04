@@ -55,7 +55,7 @@ selectedEmoji's data example
 
 ```ts
 {
-    url: "https://cdn.emoji.yajium.day/smileys/1.png",
+    url: "https://cdn.emoji.yajihum.dev/smileys/1.png",
     category: "smileys",
     name: "1",
     extension: "png"

@@ -1,15 +1,38 @@
-import { useSuspenseQuery } from '@tanstack/react-query';
-import { Category } from '../../../type';
-import { fetchEmojiList } from '../../../util';
+import { useEffect, useState } from "react";
+import { Category, EmojiType } from "../../../type";
+import { fetchEmojiList } from "../../../util";
 
 type Request = {
-  category: Category;
+	category: Category;
 };
 
 export const useEmojiList = ({ category }: Request) => {
-  const queryFn = () => fetchEmojiList(category);
-  const queryKey = ['emojiList', category.name];
+	const [imageNames, setImageNames] = useState<string[]>([]);
 
-  const { data } = useSuspenseQuery({ queryKey, queryFn });
-  return data;
+	useEffect(() => {
+		const getData = async () => {
+			console.log("category", category);
+			return await fetchEmojiList(category);
+		};
+		getData().then((data) => setImageNames(data));
+	}, [category]);
+
+	const emojiListByCategory: EmojiType[] = imageNames.map((image: string) => {
+		const [name, extension] = image.split(".");
+		return {
+			url: `https://cdn.emoji.yajihum.dev/${category.name}/${name}.${extension}`,
+			name,
+			extension,
+			category: category.name,
+		};
+	});
+
+	const sortedEmojiListByCategory = emojiListByCategory
+		.slice()
+		.sort((a, b) => Number(a.name) - Number(b.name));
+
+	return {
+		...category,
+		emojiImages: sortedEmojiListByCategory,
+	};
 };
