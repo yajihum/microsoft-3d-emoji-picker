@@ -16,21 +16,21 @@ export const Picker = ({
   handleEmojiSelect = () => {},
 }: Props) => {
   const [activeCategory, setActiveCategory] = useState<string>('smilieys');
-  const [isShowClass, setIsShowClass] = useState<string>(styles.hidden);
 
   const toggleActiveCategory = (category: string) => {
     setActiveCategory(category);
   };
 
   useEffect(() => {
-    setIsShowClass(isOpen ? styles.block : styles.hidden);
+    if (isOpen) {
+      setActiveCategory('smileys');
+    }
   }, [isOpen]);
 
+  if (!isOpen) return null;
+
   return (
-    <section
-      aria-label="Picker"
-      className={`${styles.pickerContainer} ${isShowClass}`}
-    >
+    <section aria-label="Picker" className={styles.pickerContainer}>
       <ActiveCategoryContext.Provider
         value={{ activeCategory, toggleActiveCategory }}
       >
