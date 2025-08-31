@@ -42,7 +42,7 @@
     "@vitejs/plugin-react": "^4.0.4",
     "autoprefixer": "^10.4.15",
     "jsdom": "^24.0.0",
-    "pnpm": "^8.6.12",
+    "pnpm": "^10.0.0",
     "postcss-cli": "^11.0.0",
     "rollup": "^4.0.0",
     "rollup-plugin-dts": "^6.0.0",
